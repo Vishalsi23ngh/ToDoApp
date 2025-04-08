@@ -51,6 +51,71 @@ function startListening() { // Fixed spelling
 }
 
 
+function getUrgencyColor(urgency) {
+  urgency = urgency.toLowerCase(); // Normalize to lowercase
+  // Map urgency levels to colors
+  switch (urgency) {
+    case "high":
+      return "red";
+    case "medium":
+      return "orange";
+    case "low":
+      return "green";
+    default:
+      return "grey"; // Default color for unknown urgency
+  }
+}
+
+function updateTaskList(){
+  const todoList = document.getElementById("todo-list");
+  todoList.innerHTML = ""; // Clear existing tasks
+  const taskStore = new Map(); // Store tasks in memory
+  taskStore = getTaskFromDb(userId); // Fetch tasks from the server
+  taskStore.forEach((task) => {
+    const listItem = document.createElement("div");
+    listItem.classList.add("todo-item");
+
+    const statusIndicator = document.createElement("div");
+    statusIndicator.classList.add("status-indicator");
+    statusIndicator.style.backgroundColor = getUrgencyColor(task.urgency);
+
+    const taskContent = document.createElement("div");
+    taskContent.classList.add("task-content");
+
+    const taskTitle = document.createElement("div");
+    taskTitle.classList('task-title');
+    taskTitle.ATTRIBUTE_NODE.innerHTML =`
+    span class="operation-badge" style="background-color : ${getUrgencyColor(taskData.urgency)}">${taskData.operation}</span>
+    <span class="task-name">${taskData.task}</span>
+    `
+
+    const taskDetail = document.createElement("div");
+    taskDetail.classList.add('task-detail-line');
+    taskDetail.innerHTML=`
+    <span class="urgency-badge" style="background-color:${getUrgencyColor(taskData.urgency)}">${taskData.task}</span>
+        ${taskData.datetime ? `<span class="datetime-badge">${taskData.datetime}</span>` : ""};
+
+    `
+
+    taskContent.appendChild(taskTitle);
+    taskContent.appendChild(taskDetail);
+    const completeButton = document.createElement("button");
+    completeButton.classList.add("complete-btn");
+    completeButton.innerHTML="";
+    completeButton.title ="Mark As Complete";
+    completeButton.onclick = function () {
+      updateTaskList() // Call the function to mark the task as complete
+    }
+
+    listItem.appendChild(statusIndicator);
+    listItem.appendChild(taskContent);
+    listItem.appendChild(completeButton);
+
+    todoList.appendChild(listItem);
+})
+}
+
+
 async function processVoiceCommand(command) {
   try {
     console.log("Processing command:", command);
@@ -72,6 +137,7 @@ async function processVoiceCommand(command) {
       task: aiResponse.task,
       urgency: aiResponse.urgency,
       datetime: aiResponse.datetime,
+      userId:1
     };
 
     // Update UI elements
@@ -102,18 +168,18 @@ async function processVoiceCommand(command) {
     }
 
     // Send task to server
-    const response = await fetch("http://localhost:8080/api/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify(requestBody),
-    });
+    // const response = await fetch("http://localhost:8080/api/tasks", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Accept": "application/json",
+    //   },
+    //   body: JSON.stringify(requestBody),
+    // });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error with status code: ${response.status}`);
-    }
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error with status code: ${response.status}`);
+    // }
 
     const responseData = await response.json();
     console.log("Task added successfully:", responseData);
@@ -123,4 +189,20 @@ async function processVoiceCommand(command) {
     return null;
   }
 }
+ 
 
+async function getTaskFromDb(userId){
+  try{
+    const response =await fetch(`http://localhost:8080/api/tasks/${userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+    });
+    return response.body;
+  }catch(error){
+    console.error("Error fetching tasks:", error);
+  }
+
+}

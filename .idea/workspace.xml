@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="33b21e9d-dadf-47b4-8332-786416344011" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/toDoAppBackend/src/main/java/com/example/toDoAppBackend/util/MyAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/toDoAppBackend/src/main/java/com/example/toDoAppBackend/util/MyAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/toDoAppBackend/src/main/java/com/example/toDoAppBackend/util/StemmerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/toDoAppBackend/src/main/java/com/example/toDoAppBackend/util/StemmerHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/toDoAppBackend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/toDoAppBackend/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1744089748" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="test-branch" />
+                    <option name="lastUsedInstant" value="1744089589" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2vQrPAeDVkT1HDRdSm48RH3irEC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.ToDoAppBackendApplication">
+    <configuration name="MyAnalyzer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.toDoAppBackend.util.MyAnalyzer" />
+      <module name="toDoAppBackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.toDoAppBackend.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ToDoAppBackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.toDoAppBackend.ToDoAppBackendApplication" />
+      <module name="toDoAppBackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.toDoAppBackend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ToDoAppBackendApplication" />
+        <item itemvalue="Application.MyAnalyzer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33b21e9d-dadf-47b4-8332-786416344011" name="Changes" comment="" />
+      <created>1744088116929</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744088116929</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
