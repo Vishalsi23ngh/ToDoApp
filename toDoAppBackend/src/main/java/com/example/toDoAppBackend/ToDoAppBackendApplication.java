@@ -1,6 +1,6 @@
 package com.example.toDoAppBackend;
 
-import com.example.toDoAppBackend.util.MyAnalyzer;
+import com.example.toDoAppBackend.Analyzer.MyAnalyzer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.HashSet;

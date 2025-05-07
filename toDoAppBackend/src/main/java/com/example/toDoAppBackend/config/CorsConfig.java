@@ -15,7 +15,8 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**") // Allow all API endpoints
                         .allowedOrigins("http://127.0.0.1:5500") // Allow frontend origin
-                        .allowedMethods("GET", "POST", "PUT", "DELETE") // Allow specific HTTP methods
+                        .allowedMethods("GET", "POST", "PUT", "DELETE","OPTIONS") // Allow specific HTTP methods
+                        .allowedHeaders("*")
                         .allowCredentials(true); // Allow sending cookies (if needed)
             }
         };
