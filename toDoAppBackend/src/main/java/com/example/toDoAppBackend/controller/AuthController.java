@@ -4,10 +4,6 @@ package com.example.toDoAppBackend.controller;
 import com.example.toDoAppBackend.config.JwtConfig;
 import com.example.toDoAppBackend.model.User;
 import com.example.toDoAppBackend.repository.UserRepository;
-import com.example.toDoAppBackend.service.JwtService;
-import com.example.toDoAppBackend.service.UserService;
-import com.example.toDoAppBackend.util.UserHelper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,15 +15,16 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "http://localhost:5500")
-@RequiredArgsConstructor
+
 public class AuthController {
 
-    private  final JwtConfig jwtConfig;
+    @Autowired
+    private   JwtConfig jwtConfig;
 
-    private  final UserRepository userRepository;
+    @Autowired
+    private   UserRepository userRepository;
 
-    private  final  JwtService jwtService;
-    private  final  UserService userService;
+
 
 
     @PostMapping("/login")
@@ -57,16 +54,21 @@ public class AuthController {
     public  ResponseEntity<?> signup(@RequestHeader("Authorization") String token){
         if(token != null && token.startsWith("Bearer ")){
             token = token.substring(7);
-            if(jwtService.validateToken(token)){
-                String email = jwtService.getEmailFromClaims(token);
-                String password = jwtService.getPassword(token);
-                User user =userService.saveToDb(email,password);
-                if(user == null){
+            if(jwtConfig.isTokenExpired(token)){
+                String email = jwtConfig.getUserEmail(token);
+                String password = jwtConfig.getUserPassword(token);
+
+                if(userRepository.existsByEmail(email) ){
                     return  ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("message","email already exist"));
                 }
+                User user = new User();
+                user.setEmail(email);
+                user.setPassword(password);
+                userRepository.save(user);
                 Map<String, Object> response = new HashMap<>();
                 response.put("Id",user.getId());
                 response.put("email:",user.getEmail());
+                response.put("password",user.getPassword());
             }
         }
         return  ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();

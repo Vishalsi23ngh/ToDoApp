@@ -20,6 +20,9 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
 
+    @Column(name = "userId",length =255)
+    private Long userId;
+
     @Column(name = "operation", length = 255)
     private  String operation;
 
@@ -39,4 +42,6 @@ public class Task {
     @CreationTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+
 }

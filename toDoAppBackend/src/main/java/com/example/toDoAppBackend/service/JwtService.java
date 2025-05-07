@@ -3,19 +3,21 @@ package com.example.toDoAppBackend.service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.JwtParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
 public class JwtService {
-    private final JwtParser jwtParser;
-    private static final String PUBLIC_KEY = "-----BEGIN PUBLIC KEY-----\n" +
-            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAquEdNC/yDYqLTRskQSID\n" +
-            "L8koeCDO3DVm44GBarbfgODViorwu1ov0mzBwGJNWcXHvVQHxsEx/QOs99zriz+X\n" +
-            "Gzaztgeu5fkCIdsAH3EL02RMbn1MdnH14AFuJFoO/lldqUVnfW4sqPgUhOQ9TqTE\n" +
-            "io2L4wxZNiRbVO0mDVA8wBVzBpMRzRZXvemIzoTER4CHCQMQAKiFrdmNeQgcSyXO\n" +
-            "hGTlsuhPEJ1y5MXC3CcuTUPj4biKtNwROHZuaX4CfSemEueTpa1WjDXn60iMUBzf\n" +
-            "/Tx/daS0WY6EwIepsBmHoxNTr8b2P/Xlvg7IvI1hp39MgSNGAYxTDSdH7cB5bto6\n" +
-            "sQIDAQAB\n" +
-            "-----END PUBLIC KEY-----";
+
+    private  JwtParser jwtParser;
+    private static final String PUBLIC_KEY ="-----BEGIN PUBLIC KEY-----\n" +
+            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwcoZdndhOfRVByVlDJIT\n" +
+            "oEsMF+GhK+ca8wKc5+lovrBaD5a2bNM77sHpmdW/K1lv3nO8zKyXEDI1l5DrdqsX\n" +
+            "D1rS4vtiQzlcr/XrDTOD8WLLkIkIil8WHHHar6BO0E34aWNiH0nGNg2leq8kDhhI\n" +
+            "b8MuaYCDs1OjeXMU/vSyBN/15VTE1silFh5DKjFXmdDtTY3oSJavrJsJ6+rh0rgy\n" +
+            "Gj28XdRCOv6irXymKeE6ikQhtRa6+66Y8RyrcjQiPaJmDlLVU9jEHmeFcq34WnzO\n" +
+            "FJ/CD+mybko05eXw/dmGm57cf8VFmJQXtG/0xmC86+DRdVlTmm/gAYmTy4CcIASJ\n" +
+            "/wIDAQAB\n" +
+            "-----END PUBLIC KEY-----\n";
 
 
     public JwtService(JwtParser jwtParser) {

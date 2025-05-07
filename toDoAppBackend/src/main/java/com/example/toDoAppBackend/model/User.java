@@ -3,13 +3,15 @@ package com.example.toDoAppBackend.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
-@Table(name ="app_user")
+@Table(name ="users")
 public class User {
 
     @Id
@@ -19,4 +21,6 @@ public class User {
     String password;
 
     String email;
+
+
 }
